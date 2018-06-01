@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/***********************home page start ***********************/
+.my_header {
+    background: white;
+    padding: 5px 10px;
+    position: fixed !important;
+    left: 0;
+    text-align: 0;
+	border-bottom:1px solid #f4f4f4;
+    right: 0;
+	transition: all 0.7s ease;
+    z-index: 1;
+}
+
+.my_header{background:white;padding:5px 10px;}
+
+.my_navbar{float:right;}
+.my_navbar ul{padding:10px 0px;}
+.my_navbar ul li{list-style:none;display:inline;}
+.my_navbar ul li a {text-decoration:none;color:#666;font-size:15px;font-family: 'Roboto', sans-serif;padding:0px 10px;letter-spacing:1px;}
+
+
+.modal_icon_1{margin:10px 10px;}
+.modal_icon_1{background: url(../img/modal/m1.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_1:hover{background: url(../img/modal/m1_blue.png)0px 0px no-repeat;}
+
+.modal_icon_2{margin:10px 10px;}
+.modal_icon_2{background: url(../img/modal/m2.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_2:hover{background: url(../img/modal/m2_blue.png)0px 0px no-repeat;}
+
+.modal_icon_3{margin:10px 10px;}
+.modal_icon_3{background: url(../img/modal/m3.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_3:hover{background: url(../img/modal/m3_blue.png)0px 0px no-repeat;}
+
+.modal_icon_4{margin:10px 10px;}
+.modal_icon_4{background: url(../img/modal/m4.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_4:hover{background: url(../img/modal/m4_blue.png)0px 0px no-repeat;}
+
+.modal_icon_5{margin:10px 10px;}
+.modal_icon_5{background: url(../img/modal/m5.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_5:hover{background: url(../img/modal/m5_blue.png)0px 0px no-repeat;}
+
+.modal_icon_6{margin:10px 10px;}
+.modal_icon_6{background: url(../img/modal/m6.png) 0px 0px no-repeat;width: 50px; height:50px; display:block;}
+.modal_icon_6:hover{background: url(../img/modal/m6_blue.png)0px 0px no-repeat;}
+.btn_modal{margin-bottom:10px;}
+.btn_modal a{font-size:13px;font-family:'Roboto', sans-serif;text-decoration:none;color:#666;margin-bottom:10px;}
+.brand_supplier img{padding-bottom:8px;}
+
+/***************************end of home page like made in china.com*********************************/
+
+
+
+.my_car{background-image:url(../img/banner.jpg);
+width:100%;height:400px;margin-top:69px;
+}
+
+.search_bar_new {margin:10px 15px;}
+
+.tab {
+  display: none;
+}
+
+#regForm2 {
+ 
+	font-family:'Roboto', sans-serif;
+  padding: 40px;
+  font-size:16px;
+  width: 100%;
+ 
+}
+.regForm2_p{font-family:'Roboto', sans-serif;color:#666;font-size:17px;}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.my_car h1{font-size:50px;color:#fff;font-family:'Roboto', sans-serif;font-weight:700;padding:50px 0px 10px 0px;}
+.my_car p{font-size:23px;color:#fff;font-family:'Roboto', sans-serif;font-weight:500;padding:0px 0px 10px 0px;}
+.form-control {font-size:18px;font-family:'Roboto', sans-serif;color:#F1F1F1;font-weight:500;}
+.logo img{margin-top:10px;}
+.banner_below{background:#F4F4F4;}
+
+.services_row{margin:60px 0px;}
+.service_1{width:100%;}
+.service_1 img{width:100%;border-radius:4px;}
+.services_row h2{font-size:20px;color:#333;font-family:'Roboto', sans-serif;margin:20px 0px;font-weight:600;}
+
+.service_1 h4 {
+    color: #ffffff;
+	font-family:'Roboto', sans-serif;
+    transition: 400ms;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: -8px;
+    font-size: 20px;
+   
+    text-transform: capitalize;
+    background: linear-gradient(transparent, #000000b8 ,#000000);
+    border-radius: 4px;
+    padding: 12px 6px 12px 15px;
+    text-align: left;
+}
+.two_box_1{padding-bottom:10px;}
+.two_box_1{background:#f4f4f4;width:100%;}
+.two_box_1 img{margin:30px 0px 10px 0px;border:10px solid white;border-radius:4px;box-shadow: 0 0 30px 0 rgba(0,0,0,.2);}
+.two_box_1  h1{font-size:30px;color:#333;font-family:'Roboto', sans-serif;padding:20px 0px;font-weight:700;}
+.two_box_1  p{font-size:20px;color:#333;font-family:'Roboto', sans-serif;padding:0px 20px 0px 20px;text-align:center;}
+.two_box_1  a{font-size:18px;color:#09c;font-family:'Roboto', sans-serif;}
+
+.test h1{font-size:30px;color:#333;font-family:'Roboto', sans-serif;padding:20px 0px;font-weight:700;}
+
+.test1 {border:1px solid hsla(0,0%,61%,.4);width:100%;border-radius:4px;    padding-bottom: 20px;}
+.test1 img{margin:10px 10px 0px 10px;border-radius:50px;border:1px solid hsla(0,0%,61%,.4);}
+.test1 span{color:#333;font-size:16px;font-family:'Roboto', sans-serif;}
+.test1 p{color:#666;font-size:15px;font-family:'Roboto', sans-serif;padding:5px 10px;}
+.test1 a{color:#3A62AB;font-size:15px;font-family:'Roboto', sans-serif;padding:0px 10px;}
+.test2 ul{padding-left:0px;}
+.test2 ul li{list-style:none;}
+.test2 ul li a{color:#666;font-size:15px; text-decoration:none;letter-spacing:0.5px;line-height:30px;}
+.test2 ul li a:hover{color:#000;transition: all 0.2s ease;}
+.test2 p{color:#666;font-size:15px;font-family:'Roboto', sans-serif;margin:8px 0px;}
+
+/**************footer start*************/
+.disc_list ul{list-style:none;margin-top:20px;padding-left: 0px;}
+.disc_list ul li{line-height:30px;}
+.disc_list ul li a {font-family:'Roboto', sans-serif;color:grey;text-decoration:none;font-size: 15px;}
+.disc_list ul li a:hover {color:white;font-size:13px;}
+.disc_list ul li a span{font-family:'Roboto', sans-serif;color:white;font-size: 16px;}
+
+.foot_list {margin:5px auto;}
+.foot_list ul{list-style:none;}
+.foot_list ul li{display:inline;padding: 0px 10px;border-right:1px solid grey;}
+.foot_list ul li a{padding-left:10px;color:grey;text-decoration:none;font-size:13px;font-family:'Roboto', sans-serif;}
+.foot_list_2 {padding:10px 0px;}
+.foot_list_2 a{margin:10px 0px;color:#f4f4f4;font-family:'Roboto', sans-serif;font-size:15px;}
+.foot_list_2 ul{list-style:none;float:right;}
+.foot_list_2 ul li{display:inline;padding: 10px 10px;}
+.foot_list_2 ul li a{font-size:15px;padding-left:0px;color:grey;text-decoration:none;font-family:'Roboto', sans-serif;}
+.foot_list_2 ul li a i{color:#fff;}

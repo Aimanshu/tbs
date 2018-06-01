@@ -1,0 +1,121 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use PayPal\CoreComponentTypes\BasicAmountType;
+use PayPal\Service\PayPalAPIInterfaceServiceService;
+use PayPal\PayPalAPI\SetExpressCheckoutRequestType;
+use PayPal\PayPalAPI\SetExpressCheckoutReq;
+
+use Redirect;
+use Session;
+use URL;
+
+
+
+class PaymentController extends Controller
+{
+    private $_api_context;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    public function __construct()
+    {
+        /** PayPal api context **/
+        $config = array(
+            'mode' => 'sandbox',
+            'acct1.UserName' => 'jb-us-seller_api1.paypal.com',
+            'acct1.Password' => 'WX4WTU3S8MY44S7F',
+            "acct1.Signature" => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy"
+        );
+
+        $this->_api_context = new PayPalAPIInterfaceServiceService($config);
+        // $paypal_conf = \Config::get('paypal');
+        // $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'],$paypal_conf['secret']));
+        // $this->_api_context->setConfig($paypal_conf['settings']);
+    }
+
+    public function index()
+    {
+        return view('paywithpaypal');
+    }
+
+    public function payWithpaypal(Request $request)
+    {
+        $setECReqDetails = new BasicAmountType("USD", "0.1");
+        $setECReqType = new SetExpressCheckoutRequestType();
+        $setECReqType->SetExpressCheckoutRequestDetails = $setECReqDetails;
+
+        // Create request
+        $setECReq = new SetExpressCheckoutReq();
+        $setECReq->SetExpressCheckoutRequest = $setECReqType;
+
+        // Perform request
+        $config = array(
+            'mode' => 'sandbox',
+            'acct1.UserName' => 'jb-us-seller_api1.paypal.com',
+            'acct1.Password' => 'WX4WTU3S8MY44S7F'
+        );
+
+        $services = new PayPalAPIInterfaceServiceService($config);
+
+        $setECResponse = $services->SetExpressCheckout($setECReq);
+        
+        // Check results
+        if(strtoupper($setECResponse->Ack) == 'SUCCESS') {
+            return $setECResponse;
+        }  
+    
+        \Session::put('error', 'Unknown error occurred');
+        return Redirect::to('/');
+    }
+
+    public function getPaymentStatus($status)
+    {
+        /** Get the payment ID before session clear **/
+        $payment_id = Session::get('paypal_payment_id');
+        /** clear the session payment ID **/
+        Session::forget('paypal_payment_id');
+        if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+            \Session::put('error', 'Payment failed');
+            return Redirect::to('/');
+        }
+        $a=$_GET['paymentId'];
+
+        // return $a;
+        $payment = Payment::get($payment_id, $this->_api_context);
+        $execution = new PaymentExecution();
+
+        $b=$_GET['PayerID'];
+        $execution->setPayerId($b);
+
+        $c=$execution;
+        /**Execute the payment **/
+
+        $result = $payment->execute($c, $this->_api_context);
+        if ($result->getState() == 'approved') {
+            // return $result;
+            //For Store into dateBase
+
+            $payments = Payments::where('payment_id',$result->id)->first();
+
+            $data = [
+                'status'  => 1,
+            ];
+            $payments->update($data);
+
+            return "Payment is Done Please Check Mail!!";
+            \Session::put('success', 'Payment success');
+            return Redirect::to('/success');
+        }
+        return "Payment Is Fail Plase Try Again!!";
+        \Session::put('error', 'Payment failed');
+        return Redirect::to('/Payment_failed');
+
+    }
+
+}
