@@ -1,0 +1,22 @@
+{
+  "name": "Krishna",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "stack": "heroku-16",
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
